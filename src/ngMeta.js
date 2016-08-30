@@ -2,7 +2,8 @@
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['angular'], factory);
-  } else if (typeof exports === 'object') {
+  //Check for angular prevends double load warning with JSPM
+  } else if (typeof exports === 'object' && !typeof root.angular === 'object') {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
